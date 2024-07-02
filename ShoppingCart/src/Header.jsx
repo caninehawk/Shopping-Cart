@@ -1,20 +1,36 @@
-import { Link } from "react-router-dom";
-
-const Header = () => {
+import { NavLink } from "react-router-dom";
+import './Header.css';
+import logo from './assets/logo.png';
+import cart from './assets/cart.svg';
+const Header = (props) => {
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/shop">Shop</Link>
-        </li>
-        <li>
-          <Link to="/contact">Contact</Link>
-        </li>
-      </ul>
-    </nav>
+    <>
+        <div className="header">
+            <nav className="navbar">
+                <div className="logo-container">
+                    <img src={logo} alt="cart-icon" className="logo"/>
+                </div>
+                <div className="options">
+                    <ul className="nav-list">
+                        <li className="nav-item">
+                            <NavLink to="/" exact activeClassName="active" className="nav-link">Home</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink to="/shop" activeClassName="active" className="nav-link">Shop</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink to="/contact" activeClassName="active" className="nav-link">Contact</NavLink>
+                        </li>
+                    </ul>
+                </div>
+                <div className="cart">
+                    <img src={cart} alt="cart" className="cart-logo"/>
+                    <p>{props.count}</p>
+                </div>
+            </nav>
+        </div>        
+    </>
+    
   );
 };
 
