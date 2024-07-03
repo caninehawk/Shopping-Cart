@@ -11,9 +11,7 @@ https://shopping-cart-alpha-orpin.vercel.app/
 - Features
 - Demo
 - Installation
-- Usage
 - Technologies Used
-- Contributing
 
 ## Introduction
 Shopkart is a simple React application where you can order items from the website. All the products shown in the website are fake and are displayed using a FakeStore API.
