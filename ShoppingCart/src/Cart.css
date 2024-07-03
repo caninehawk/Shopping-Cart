@@ -56,3 +56,16 @@
     display:flex;
     justify-content: space-evenly;
 }
+.contact{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+.evil{
+    border-radius: 4px;
+    padding:20px;
+    width: 500px;
+    height: 500px;
+}
