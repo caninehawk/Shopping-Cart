@@ -1,9 +1,14 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import './Header.css';
 import logo from './assets/logo.png';
 import cart from './assets/cart.svg';
 const Header = (props) => {
-  return (
+    const navigate = useNavigate();
+
+    const handleCartClick = () => {
+        navigate("/cart");
+    }
+    return (
     <>
         <div className="header">
             <nav className="navbar">
@@ -23,7 +28,7 @@ const Header = (props) => {
                         </li>
                     </ul>
                 </div>
-                <div className="cart">
+                <div className="cart" onClick={handleCartClick}>
                     <img src={cart} alt="cart" className="cart-logo"/>
                     <p>{props.count}</p>
                 </div>

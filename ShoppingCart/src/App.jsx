@@ -3,15 +3,11 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header.jsx";
 import { useState } from 'react';
 
-function App() {
-  const [cartCount, updateCount] = useState(0);
-  const handleAddKart = () => {
-    updateCount(cartCount+1);
-  };
+function App(props) {
   return (
     <>
     <div className="app">
-      <Header count = {cartCount} addKart={handleAddKart}/>
+      <Header count = {props.cartCount} addKart={props.handleAddKart}/>
       <Outlet />
     </div>
     </>

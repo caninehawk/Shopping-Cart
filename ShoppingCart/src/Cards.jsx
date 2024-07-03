@@ -3,30 +3,29 @@ import { useLocation } from "react-router-dom";
 import './Cards.css';
 import Loading from './Loading.jsx';
 
-const Cards = ({ productURL }) => {
-    const [cards, updateCards] = useState([]);
+const Cards = (props) => {
     const location = useLocation();
-    const [kart, updateKart] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
-            setLoading(true);  // Ensure loading is true at the start of the fetch
+            setLoading(true);
             try {
-                const response = await fetch(productURL);
+                const response = await fetch(props.productURL);
                 const data = await response.json();
-                updateCards(data);
+                props.updateCards(data);
             } catch (error) {
                 console.error("Error Fetching Information", error);
             } finally {
-                setLoading(false);  // Set loading to false after fetch is complete
+                setLoading(false);
             }
         };
         fetchData();
-    }, [location, productURL]);
+    }, [location, props.productURL]);
 
     const handleAddToKart = (product) => {
-        updateKart((prevKart) => [...prevKart, product]);
+        props.updateKartItems((prevKart) => [...prevKart, product]);
+        props.updateCount();
     };
 
     if (loading) {
@@ -36,12 +35,12 @@ const Cards = ({ productURL }) => {
     return (
         <div className="card-container">
             <div className="card-grid">
-                {cards.map((product, index) => (
+                {props.cards.map((product, index) => (
                     <div key={index} className="card">
                         <h4>{product.title}</h4>
                         <img src={product.image} alt={product.title} className="card-img" />
                         <h4>Price: ${product.price}</h4>
-                        <button onClick={() => handleAddToKart(cards[index])}>Add to Kart</button>
+                        <button onClick={() => handleAddToKart(product)}>Add to Kart</button>
                     </div>
                 ))}
             </div>

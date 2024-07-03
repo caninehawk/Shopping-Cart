@@ -3,9 +3,10 @@ import { NavLink, useLocation } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import Cards from './Cards.jsx';
 
-const Shop = () => {
+const Shop = (props) => {
     const location = useLocation();
     let productURL;
+
     if (location.pathname === '/shop/men') {
         productURL = "https://fakestoreapi.com/products/category/men's clothing";
     } else if (location.pathname === '/shop/women') {
@@ -40,7 +41,15 @@ const Shop = () => {
                 </ul>
             </div>
             <div className="right">
-                <Cards productURL={productURL} />
+                <Cards 
+                    productURL={productURL} 
+                    cartCount={props.cartCount} 
+                    updateCount={props.updateCount} 
+                    kart={props.kart} 
+                    updateKartItems={props.setKartItems} 
+                    cards={props.cards} 
+                    updateCards={props.setCards} 
+                />
                 <Outlet />
             </div>
         </div>
