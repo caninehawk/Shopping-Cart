@@ -24,11 +24,11 @@ const routes = [
                 element: <Shop />,
                 children: [
                     {
-                        path: "men",
+                        path: "/shop/men",
                         element: <Men />
                     },
                     {
-                        path: "women",
+                        path: "/shop/women",
                         element: <Women />
                     }
                 ]

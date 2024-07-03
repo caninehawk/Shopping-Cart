@@ -1,7 +1,7 @@
 import './Shop.css';
 import { NavLink } from "react-router-dom";
 import { Outlet } from "react-router-dom";
-
+import Cards from './Cards.jsx';
 const Shop = () => {
     return (
         <div className="shop">
@@ -19,6 +19,7 @@ const Shop = () => {
                 </ul>
             </div>
             <div className="right">
+                <Cards />
                 <Outlet />
             </div>
         </div>

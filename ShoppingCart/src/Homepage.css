@@ -5,9 +5,12 @@
     align-items: center;
     margin: 50px auto;
     max-width: 1200px;
+    background-color: white;
+    border-radius: 5px;
   }
   
   .image {
+    margin: 20px;
     flex: 1;
     text-align: center;
   }

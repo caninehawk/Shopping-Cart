@@ -7,8 +7,10 @@ function App() {
   const [cartCount, updateCount] = useState(0);
   return (
     <>
+    <div className="app">
       <Header count = {cartCount}/>
       <Outlet />
+    </div>
     </>
   )
 }
