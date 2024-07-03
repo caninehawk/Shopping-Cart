@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+
 import './Cards.css'
-const fakeItemsURL = "https://fakestoreapi.com/products";
 
-const Cards = () => {
+const Cards = (props) => {
     const [cards, updateCards] = useState([]);
-
+    const location = useLocation();
+    const [kart, updateKart] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(fakeItemsURL);
+                const response = await fetch(props.productURL);
                 const data = await response.json();
                 updateCards(data);
             } catch (error) {
@@ -16,19 +18,20 @@ const Cards = () => {
             }
         };
         fetchData();
-    }, []);
-
+    }, [location, props.productURL]);
+    useEffect(() => {
+        
+    })
+    
     return (
         <div className="card-container">
             <div className="card-grid">
                 {cards.map((product, index) => (
                     <div key={index} className="card">
-                        <h3>{product.category}</h3>
-                        <p>{product.title}</p>
-                        <img src={product.image} alt={product.title} />
-                        <p>{product.description}</p>
-                        <p>Price: ${product.price}</p>
-                        <p>Rating: {product.rating.rate} ({product.rating.count} reviews)</p>
+                        <h4>{product.title}</h4>
+                        <img src={product.image} alt={product.title} className="card-img" />
+                        <h4>Price: ${product.price}</h4>
+                        <button onClick={() => {updateKart(...kart, cards[index])}}>Add to Kart</button>
                     </div>
                 ))}
             </div>

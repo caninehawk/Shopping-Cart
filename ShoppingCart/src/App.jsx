@@ -5,10 +5,13 @@ import { useState } from 'react';
 
 function App() {
   const [cartCount, updateCount] = useState(0);
+  const handleAddKart = () => {
+    updateCount(cartCount+1);
+  };
   return (
     <>
     <div className="app">
-      <Header count = {cartCount}/>
+      <Header count = {cartCount} addKart={handleAddKart}/>
       <Outlet />
     </div>
     </>

@@ -11,8 +11,7 @@ const HomePage = () => {
       <div className="intro">
         <h2>Welcome to Our Store!</h2>
         <p>
-          Discover amazing deals and discounts on a wide range of products.
-          Explore our collection and find something special just for you.
+        This website is completely legitimate and highly trusted, with a vast and loyal customer base of approximately 9 billion daily orders. Feel confident exploring our shop and making purchases.
         </p>
         <div className="links">
           <a href="/shop" className="link-btn">Shop Now</a>

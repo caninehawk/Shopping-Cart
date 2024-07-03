@@ -3,8 +3,6 @@ import HomePage from "./HomePage.jsx";
 import Shop from "./Shop.jsx";
 import Contact from "./Contact.jsx";
 import Cart from "./Cart.jsx";
-import Men from "./Men.jsx";
-import Women from "./Women.jsx";
 
 const routes = [
     {
@@ -24,12 +22,16 @@ const routes = [
                 element: <Shop />,
                 children: [
                     {
-                        path: "/shop/men",
-                        element: <Men />
+                        path: "/shop/men"
                     },
                     {
-                        path: "/shop/women",
-                        element: <Women />
+                        path: "/shop/women"
+                    },
+                    {
+                        path: "/shop/electronics"
+                    },
+                    {
+                        path: "/shop/jewelery"
                     }
                 ]
             },
