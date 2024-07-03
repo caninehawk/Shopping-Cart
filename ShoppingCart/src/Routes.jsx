@@ -2,7 +2,9 @@ import App from './App';
 import HomePage from "./HomePage.jsx";
 import Shop from "./Shop.jsx";
 import Contact from "./Contact.jsx";
-import Cart from "./Cart.jsx"
+import Cart from "./Cart.jsx";
+import Men from "./Men.jsx";
+import Women from "./Women.jsx";
 
 const routes = [
     {
@@ -19,7 +21,17 @@ const routes = [
             },
             {
                 path: "shop",
-                element: <Shop />
+                element: <Shop />,
+                children: [
+                    {
+                        path: "men",
+                        element: <Men />
+                    },
+                    {
+                        path: "women",
+                        element: <Women />
+                    }
+                ]
             },
             {
                 path: "contact",
@@ -31,7 +43,6 @@ const routes = [
             }
         ]
     }
-    
 ];
 
 export default routes;

@@ -1,27 +1,28 @@
-import './Shop.css'
-import { NavLink } from "react-router-dom"
-import { Outlet } from "react-router-dom"
-const Shop = () =>{
+import './Shop.css';
+import { NavLink } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+
+const Shop = () => {
     return (
-        <>
-            <div className="container">
-                <div className="category">
-                    <ul className="gender">
-                        <  li className="nav-item">
-                            <NavLink to="/shop" exact activeClassName="active" className="nav-link">All</NavLink>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink to="/shop/male" exact activeClassName="active" className="nav-link">Men Clothing</NavLink>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink to="/shop/female" activeClassName="active" className="nav-link">Women Clothing</NavLink>
-                        </li>
-                    </ul>
-                </div>
+        <div className="shop">
+            <div className="category">
+                <ul className="cat">
+                    <li className="cat-item">
+                        <NavLink to="/shop" end className="cat-link" activeClassName="active">All</NavLink>
+                    </li>
+                    <li className="cat-item">
+                        <NavLink to="/shop/men" className="cat-link" activeClassName="active">Men Clothing</NavLink>
+                    </li>
+                    <li className="cat-item">
+                        <NavLink to="/shop/women" className="cat-link" activeClassName="active">Women Clothing</NavLink>
+                    </li>
+                </ul>
+            </div>
+            <div className="right">
                 <Outlet />
-            </div> 
-        </>
-    )
-}
+            </div>
+        </div>
+    );
+};
 
 export default Shop;
